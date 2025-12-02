@@ -1,0 +1,69 @@
+services:
+  clientes-service:
+    build:
+      context: ./Clientes
+      dockerfile: Dockerfile
+    container_name: clientes-service
+    ports:
+      - "8080:8080"
+    #env_file:
+    # - ./env/clientes.env
+    networks:
+      - backend
+    restart: unless-stopped
+
+  estado-solicitud-service:
+    build:
+      context: ./estatus_solicitud
+      dockerfile: Dockerfile
+    container_name: estado-solicitud-service
+    ports:
+      - "8081:8081"
+    #env_file:
+    # - ./env/estado_solicitud.env
+    networks:
+      - backend
+    restart: unless-stopped
+
+  solicitud-service:
+    build:
+      context: ./solicitudes
+      dockerfile: Dockerfile
+    container_name: solicitud-service
+    ports:
+      - "8082:8082"
+    #env_file:
+    # - ./env/solicitud.env
+    networks:
+      - backend
+    restart: unless-stopped
+
+  correccion-datos-service:
+    build:
+      context: ./correcion_de_datos
+      dockerfile: Dockerfile
+    container_name: correccion-datos-service
+    ports:
+      - "8083:8083"
+    #env_file:
+    # - ./env/correccion_datos.env
+    networks:
+      - backend
+    restart: unless-stopped
+
+  video-consentimiento-service:
+    build:
+      context: ./Video_De_Consentimiento/video_de_consentimiento
+      dockerfile: Dockerfile
+    container_name: video-consentimiento-service
+    ports:
+      - "8084:8084"
+    #env_file:
+    # - ./env/video_consentimiento.env
+    networks:
+      - backend
+    restart: unless-stopped
+
+networks:
+  backend:
+    driver: bridge

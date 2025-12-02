@@ -79,7 +79,7 @@ public class SolicitudController {
             }
 
             // Cambiar el estatus únicamente
-            existente.setId_estatus(idEstatus);
+            existente.setIdEstatus(idEstatus);
 
             solicitudDAO.save(existente);
             return ResponseEntity.ok().build();
