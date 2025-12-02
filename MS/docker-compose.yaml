@@ -53,7 +53,7 @@ services:
 
   video-consentimiento-service:
     build:
-      context: ./Video_De_Consentimiento/video_de_consentimiento
+      context: ./video_de_consentimiento
       dockerfile: Dockerfile
     container_name: video-consentimiento-service
     ports:
